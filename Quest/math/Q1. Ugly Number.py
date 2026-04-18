@@ -11,14 +11,8 @@ class Solution:
             n //= 5
 
         return n == 1
-n=14
+    
+n =  6
 obj = Solution().isUgly(n)
 
 print(obj)
-    
-
-    
-
-        
-
-
