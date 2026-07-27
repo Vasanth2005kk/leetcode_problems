@@ -1,11 +1,12 @@
+from typing import List
+
 class Solution:
     def removeElement(self, nums: List[int], val: int) -> int:   
-        for i in nums[::]:
-            if val == i:
-                nums.remove(i)
-
-        return len(nums)
-
+        count = 0
+        for i in nums:
+            if i != val:
+                count +=1
+        return count
 
 nums = [0,1,2,2,3,0,4,2]
 val = 2
