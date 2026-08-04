@@ -4,7 +4,7 @@ class Solution:
         for i in edges:
             output.extend(i)
 
-        for i in output:
+        for i in edges[0]:
             if len(edges) == output.count(i):
                 return i
 
