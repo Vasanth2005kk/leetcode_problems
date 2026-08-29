@@ -12,22 +12,43 @@ class ListNode:
         self.val = val
         self.next = next
 
-
 class Solution:
     def swapPairs(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        temp =  head
-        findcount = 0
-        while temp:
-            findcount +=1
-            Prev = temp.val
-            if findcount % 2 == 1 and temp.next != None:
-                Emty = temp.next.val    
-                temp.next.val = Prev
-                temp.val = Emty
+        dummy = ListNode(0)
+        dummy.next = head
+
+        prev = dummy
+
+        while prev.next and prev.next.next:
+            first = prev.next
+            second = first.next
+
+            # Relink nodes
+            first.next = second.next
+            second.next = first
+            prev.next = second
+
+            # Move to the next pair
+            prev = first
+
+        return dummy.next
+
+
+# class Solution:
+#     def swapPairs(self, head: Optional[ListNode]) -> Optional[ListNode]:
+#         temp =  head
+#         findcount = 0
+#         while temp:
+#             findcount +=1
+#             Prev = temp.val
+#             if findcount % 2 == 1 and temp.next != None:
+#                 Emty = temp.next.val    
+#                 temp.next.val = Prev
+#                 temp.val = Emty
                 
-            temp =  temp.next
+#             temp =  temp.next
         
-        return head
+#         return head
 
 
 head = [1,2,3,4]
